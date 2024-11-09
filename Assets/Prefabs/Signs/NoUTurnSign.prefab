@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2918479730695130341}
   - component: {fileID: 9190366279322290661}
-  - component: {fileID: 8512691451262501913}
   m_Layer: 0
   m_Name: NoUTurnSign
   m_TagString: Untagged
@@ -85,15 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8512691451262501913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5746620533391968251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49695b4423fcac84690c76b6a512e062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

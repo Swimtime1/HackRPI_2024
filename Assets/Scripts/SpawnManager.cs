@@ -29,9 +29,12 @@ public class SpawnManager : MonoBehaviour
     {
         // Prevents spawning while the game isn't active
         if(!GameManager.gameActive) { return; }
+
+        // Removes all previous signs
+        foreach(Transform child in transform) { Destroy(child.gameObject); }
         
         int index = Random.Range(0, signPrefabs.Length);
         GameObject toSpawn = signPrefabs[index];
-        Instantiate(toSpawn, spawnPos, toSpawn.transform.rotation);
+        Instantiate(toSpawn, spawnPos, toSpawn.transform.rotation, gameObject.transform);
     }
 }
