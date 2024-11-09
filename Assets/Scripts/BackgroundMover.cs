@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundManager : MonoBehaviour
+public class BackgroundMover : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
