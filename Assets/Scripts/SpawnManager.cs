@@ -27,6 +27,9 @@ public class SpawnManager : MonoBehaviour
     // Instantiates a new sign
     private void SpawnRandomSign()
     {
+        // Prevents spawning while the game isn't active
+        if(!GameManager.gameActive) { return; }
+        
         int index = Random.Range(0, signPrefabs.Length);
         GameObject toSpawn = signPrefabs[index];
         Instantiate(toSpawn, spawnPos, toSpawn.transform.rotation);
