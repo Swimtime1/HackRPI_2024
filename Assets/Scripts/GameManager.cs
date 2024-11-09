@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     #region Variables
 
     [Header("Game Flow")]
-    [SerializeField] private bool gameStarted;
-    [SerializeField] private bool gameActive;
+    public static bool gameStarted;
+    public static bool gameActive;
 
     [Header("Menus")]
     [SerializeField] private GameObject startMenu;

@@ -11,6 +11,9 @@ public class BackgroundMover : MonoBehaviour
     [SerializeField] private Vector2 startPos;
     [SerializeField] private Vector2 endPos;
 
+    [Space(10)]
+    [SerializeField] private float speed;
+
     #endregion Variables
     
     // Start is called before the first frame update
@@ -23,10 +26,13 @@ public class BackgroundMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Prevents background from moving while the game isn't active
+        if(!GameManager.gameActive) { return; }
+        
         // Resets the position to the far right if the far left was reached
-        if(transform.position.x <= endPos.x) { transform.Translate(startPos); }
+        if(transform.position.x <= endPos.x) { transform.position = startPos; }
 
         // Moves this GameObject to the left
-        else { transform.Translate(startPos); }
+        else { transform.Translate(Vector3.left * speed * Time.deltaTime); }
     }
 }

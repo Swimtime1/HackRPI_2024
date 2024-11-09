@@ -98,8 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStartPos: {x: 0, y: 0}
-  startPos: {x: 0, y: 0}
-  endPos: {x: 0, y: 0}
+  startPos: {x: 20, y: 0}
+  endPos: {x: -20, y: 0}
+  speed: 10
 --- !u!1 &4670354047065329590
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce7863cd36cdd943b2bf7ca06a7e9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStartPos: {x: 0, y: 0}
-  startPos: {x: 0, y: 0}
-  endPos: {x: 0, y: 0}
+  gameStartPos: {x: 20, y: 0}
+  startPos: {x: 20, y: 0}
+  endPos: {x: -20, y: 0}
+  speed: 10
