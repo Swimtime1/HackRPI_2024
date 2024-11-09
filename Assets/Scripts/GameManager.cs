@@ -38,7 +38,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetButtonDown("Stop") && gameActive == false ) {
+            gameActive = true;
+        }
+        else if(Input.GetButtonDown("Stop") && gameActive == true){
+            gameActive = false;
+        }
     }
 
     #region Menus
