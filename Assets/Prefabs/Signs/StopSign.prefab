@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2918479730695130341}
   - component: {fileID: 9190366279322290661}
   - component: {fileID: 8938260189926919176}
-  - component: {fileID: -5474562074163252920}
   m_Layer: 0
   m_Name: StopSign
   m_TagString: Untagged
@@ -102,15 +101,3 @@ MonoBehaviour:
   correct: {fileID: 0}
   late: {fileID: 0}
   early: {fileID: 0}
---- !u!114 &-5474562074163252920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5746620533391968251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49695b4423fcac84690c76b6a512e062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
