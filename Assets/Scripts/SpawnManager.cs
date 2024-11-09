@@ -17,18 +17,6 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Vector2 spawnPos;
 
     #endregion Variables
-    
-    /* // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    } */
 
     // Called when the Start Menu is closed
     public void StartSpawn()
@@ -38,5 +26,9 @@ public class SpawnManager : MonoBehaviour
 
     // Instantiates a new sign
     private void SpawnRandomSign()
-    {}
+    {
+        int index = Random.Range(0, signPrefabs.Length);
+        GameObject toSpawn = signPrefabs[index];
+        Instantiate(toSpawn, spawnPos, toSpawn.transform.rotation);
+    }
 }
