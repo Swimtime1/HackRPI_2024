@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject endMenu;
 
+    [Header("Other Managers")]
+    [SerializeField] private SpawnManager spawnManager;
+
     private InputActions input;
 
     #endregion Variables
@@ -77,7 +80,11 @@ public class GameManager : MonoBehaviour
     private void OnStartPerformed(InputAction.CallbackContext context)
     {
         // only opens the level selection menu if the start menu is active
-        if(startMenu.activeSelf) { StartGame(); }
+        if(startMenu.activeSelf)
+        {
+            StartGame();
+            spawnManager.StartSpawn();
+        }
     }
 
     // Called when any of the binds associated with Stop in input are used

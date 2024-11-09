@@ -45,7 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   signPrefabs:
+  - {fileID: 5746620533391968251, guid: 07fa9e73d80fdb44784599adaf05b48d, type: 3}
+  - {fileID: 5746620533391968251, guid: 282d7a4184b69de4cab45dd25f4ede8e, type: 3}
+  - {fileID: 5746620533391968251, guid: 381dc2c8d6f803b499377035a5c1db9b, type: 3}
   - {fileID: 5746620533391968251, guid: 4ec21407955d7d8439b379efe43da43f, type: 3}
+  - {fileID: 5746620533391968251, guid: dc6a30cb44eb5454dbcaae309a25c149, type: 3}
+  - {fileID: 5746620533391968251, guid: 3e520a3ddbca13a4b8cce0a925ac9001, type: 3}
+  - {fileID: 5746620533391968251, guid: c17b37c3dbf2ee44bb8a77f1eb1179f2, type: 3}
   startDelay: 3
   spawnInterval: 2
   spawnPos: {x: 0, y: 0}
