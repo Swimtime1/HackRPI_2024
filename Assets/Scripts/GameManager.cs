@@ -22,10 +22,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameStarted = false;
+        gameStarted = true;
         gameActive = false;
         
-        OpenStart();
+        /* OpenStart(); */
     }
 
     // Closes the Start Menu and starts the game
@@ -38,7 +38,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetButtonDown("Stop") && gameStarted)
+        {
+            gameActive = !gameActive;
+        }
     }
 
     #region Menus
