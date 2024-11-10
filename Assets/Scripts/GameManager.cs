@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject endMenu;
 
+    [Header("Animators")]
+    [SerializeField] private Animator carAnimator;
+
     [Header("Other Managers")]
     [SerializeField] private SpawnManager spawnManager;
 
@@ -37,6 +40,7 @@ public class GameManager : MonoBehaviour
     {
         gameStarted = false;
         gameActive = false;
+        carAnimator.speed = 0;
         
         OpenStart();
     }
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour
     {
         gameStarted = true;
         gameActive = true;
+        carAnimator.speed = 1;
 
         CloseMenus();
     }
@@ -94,6 +99,8 @@ public class GameManager : MonoBehaviour
         if(gameStarted && !pauseMenu.activeSelf)
         {
             gameActive = !gameActive;
+            if(gameActive) { carAnimator.speed = 1; }
+            else { carAnimator.speed = 0;}
         }
     }
 
@@ -105,6 +112,7 @@ public class GameManager : MonoBehaviour
         {
             CloseMenus();
             gameActive = true;
+            carAnimator.speed = 1;
         }
         else { OpenPause(); }
     }
@@ -133,6 +141,7 @@ public class GameManager : MonoBehaviour
     {
         CloseMenus();
         gameActive = false;
+        carAnimator.speed = 0;
         pauseMenu.SetActive(true);
     }
 
@@ -141,6 +150,7 @@ public class GameManager : MonoBehaviour
     {
         CloseMenus();
         endMenu.SetActive(true);
+        carAnimator.speed = 1;
         gameActive = false;
     }
 
