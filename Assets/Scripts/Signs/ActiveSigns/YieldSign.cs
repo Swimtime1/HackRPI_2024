@@ -6,17 +6,24 @@ public class YieldSign : MonoBehaviour
 {
     #region Variables
 
+    [Header("Other Objects")]
     [SerializeField] private GameObject truck;
+    [SerializeField] private GameManager gm;
+    
+    [Header("Misc.")]
     [SerializeField] private bool yielded;
-    private int isCar;
+    [SerializeField] private int isCar;
 
     #endregion Variables
     
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gm.DisplayMessage("");
+        
         // allows randomness of oncoming cars existing
-        isCar = Random.Range(0, 1);
+        isCar = Random.Range(0, 2);
         if(isCar == 1) { Destroy(truck); }
 
         yielded = false;
@@ -31,11 +38,12 @@ public class YieldSign : MonoBehaviour
         // Determines if the player yielded in time
         if(truck && (truck.transform.position.x < Car.xPos))
         {
-            if(yielded)
-            {
-                Debug.Log("Successfully Yielded");
-            }
-            else { Debug.Log("Failed to yield"); }
+            string str;
+            
+            if(yielded) { str = "Nice Job!"; }
+            else { str = "Uh-oh! Remember, at a yield sign the other car has the right of way! Stop for them!"; }
+
+            gm.DisplayMessage(str);
         }
     }
 }

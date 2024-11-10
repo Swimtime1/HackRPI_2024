@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject endMenu;
 
+    [Header("Text")]
+    [SerializeField] private TextMeshProUGUI popup;
+
     [Header("Animators")]
     [SerializeField] private Animator carAnimator;
 
@@ -53,12 +56,6 @@ public class GameManager : MonoBehaviour
         carAnimator.speed = 1;
 
         CloseMenus();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     #region Input
@@ -155,4 +152,19 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion Menus
+
+    // Displays a message for a bit
+    public void DisplayMessage(string message)
+    {
+        popup.text = message;
+        
+        /* // Prevents multi-calling
+        if(!popup.gameObject.activeSelf)
+        {
+            popup.text = message;
+            popup.gameObject.SetActive(true);
+            yield return new WaitForSeconds(5f);
+            popup.gameObject.SetActive(false);
+        } */
+    }
 }

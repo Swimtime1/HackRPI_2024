@@ -7,13 +7,21 @@ public class Truck : MonoBehaviour
     #region Variables
 
     [SerializeField] private float speed;
-    [SerializeField] private bool canStart = false;
+    [SerializeField] private GameObject pauseMenu;
 
     #endregion Variables
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        pauseMenu = GameObject.Find("Pause Menu");
+    }
     
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        // Only runs if the game is not paused
+        if(!pauseMenu.activeSelf)
+        { transform.Translate(Vector3.left * speed * Time.deltaTime); }
     }
 }
