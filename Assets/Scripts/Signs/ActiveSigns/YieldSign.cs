@@ -41,8 +41,16 @@ public class YieldSign : MonoBehaviour
         {
             string str;
             
-            if(yielded) { str = "Nice Job!"; }
-            else { str = "Uh-oh! Remember, at a yield sign the other car has the right of way! Stop for them!"; }
+            if(yielded)
+            {
+                str = "Nice Job!";
+                gm.UpdateScore();
+            }
+            else
+            {
+                str = "Uh-oh! Remember, at a yield sign the other car has the right of way! Stop for them!";
+                gm.OpenEnd();
+            }
 
             gm.DisplayMessage(str);
         }
