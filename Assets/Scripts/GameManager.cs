@@ -27,8 +27,9 @@ public class GameManager : MonoBehaviour
     [Header("Animators")]
     [SerializeField] private Animator carAnimator;
 
-    [Header("Other Managers")]
+    [Header("Other Objects")]
     [SerializeField] private SpawnManager spawnManager;
+    [SerializeField] private ParticleSystem burst;
 
     private InputActions input;
 
@@ -171,5 +172,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScore()
     {
         score++;
+        burst.Play();
+        Debug.Log("Score: " + score);
     }
 }
