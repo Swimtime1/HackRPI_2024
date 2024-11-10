@@ -3,7 +3,9 @@ guid: b82df2ff7ba87334eae001297f0970e9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - playerCar: {instanceID: 0}
+  - npcCar: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
