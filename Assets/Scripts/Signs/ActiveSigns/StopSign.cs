@@ -33,7 +33,6 @@ public class StopSign : MonoBehaviour {
 					stop++;
 					Score.scoreType++;
 					StartCoroutine (turnOff (correct));
-
 				}
 			}
 			else if ( distance > 6.2 ) {
@@ -49,9 +48,7 @@ public class StopSign : MonoBehaviour {
 		}
 
 	}
-
-	// 
-	IEnumerator turnOff (GameObject condition) {
+	IEnumerator turnOff ( GameObject condition ) {
 		condition.SetActive (true);
 		yield return new WaitForSeconds (1);
 		condition.SetActive (false);
