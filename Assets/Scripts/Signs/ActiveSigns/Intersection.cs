@@ -13,15 +13,15 @@ public class Intersection : MonoBehaviour {
         npcCarGoesFirst = true;
         //(Random.Range(0, 1) == 0) ? true : false;
         if(npcCarGoesFirst) {
-            npcCar.GetComponent<Animation>().
-            npcCar.GetComponent<Animation>().Play("topDownNpcCar", .25);
+
+            npcCar.GetComponent<Animation>().Play("topDownNpcCar");
         }
     }
 
     // Update is called once per frame
     void Update() {
         if(GameManager.gameActive) {
-            playerCar.transform.Translate(10 * Time.deltaTime, 0, 0);
+            playerCar.transform.Translate(1 * Time.deltaTime, 0, 0);
         }
     }
 }
