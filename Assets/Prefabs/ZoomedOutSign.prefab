@@ -103,6 +103,7 @@ MonoBehaviour:
   startPos: {x: 9.12, y: -4.508}
   endPos: {x: -9.12, y: -4.508}
   speed: 1
+  spawnManager: {fileID: 0}
 --- !u!61 &4473255939352056495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191,5 +192,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.08}
+  m_Size: {x: 0.5, y: 0.08}
   m_EdgeRadius: 0

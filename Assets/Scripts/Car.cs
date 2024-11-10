@@ -6,9 +6,10 @@ public class Car : MonoBehaviour
 {
     #region Variables
 
-    [Header("State")]
     public static bool inRange;
     public static bool tooClose;
+
+    public static float xPos;
 
     #endregion Variables
     
@@ -17,6 +18,7 @@ public class Car : MonoBehaviour
     {
         inRange = false;
         tooClose = false;
+        xPos = this.transform.position.x;
     }
 
     // Called when the collider first overlaps another collider

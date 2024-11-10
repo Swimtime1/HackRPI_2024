@@ -7,6 +7,8 @@ public class YieldSign : MonoBehaviour
     #region Variables
 
     [SerializeField] private GameObject truck;
+    [SerializeField] private bool yielded;
+    private int isCar;
 
     #endregion Variables
     
@@ -14,12 +16,26 @@ public class YieldSign : MonoBehaviour
     void Start()
     {
         // allows randomness of oncoming cars existing
-        /* if(Random.Range(0, 1) == 1) { Destroy(truck); } */
+        isCar = Random.Range(0, 1);
+        if(isCar == 1) { Destroy(truck); }
+
+        yielded = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // the car yielded if they stopped while in range
+        if(Car.inRange && !GameManager.gameActive) { yielded = true; }
+
+        // Determines if the player yielded in time
+        if(truck && (truck.transform.position.x < Car.xPos))
+        {
+            if(yielded)
+            {
+                Debug.Log("Successfully Yielded");
+            }
+            else { Debug.Log("Failed to yield"); }
+        }
     }
 }

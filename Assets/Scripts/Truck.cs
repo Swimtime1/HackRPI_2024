@@ -14,7 +14,6 @@ public class Truck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(/* Car.inRange */ true) { canStart = true; }
-        if(canStart) { transform.Translate(Vector3.left * speed * Time.deltaTime); }
+        transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 }
