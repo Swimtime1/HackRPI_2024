@@ -31,8 +31,6 @@ public class GameManager : MonoBehaviour
     [Header("Audio Sources and Clips")]
     [SerializeField] private AudioSource bkMusic;
     [SerializeField] private AudioSource carAudio;
-    [SerializeField] private AudioClip driving;
-    [SerializeField] private AudioClip braking;
 
     [Header("Other Objects")]
     [SerializeField] private SpawnManager spawnManager;
@@ -119,7 +117,6 @@ public class GameManager : MonoBehaviour
             {
                 carAnimator.speed = 0;
                 carAudio.Stop();
-                carAudio.PlayOneShot(braking);
             }
         }
     }
