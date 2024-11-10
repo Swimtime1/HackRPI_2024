@@ -43,6 +43,7 @@ public class NoParkingSign : MonoBehaviour
             gm.DisplayMessage(str);
             pointGiven = true;
             gm.UpdateScore();
+            Destroy(gameObject);
         }
     }
 }
