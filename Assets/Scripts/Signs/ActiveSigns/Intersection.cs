@@ -10,15 +10,18 @@ public class Intersection : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
 
-        npcCarGoesFirst = (Random.Range(0, 1) == 0) ? true : false;
+        npcCarGoesFirst = true;
+        //(Random.Range(0, 1) == 0) ? true : false;
         if(npcCarGoesFirst) {
+            npcCar.GetComponent<Animation>().
+            npcCar.GetComponent<Animation>().Play("topDownNpcCar", .25);
         }
     }
 
     // Update is called once per frame
     void Update() {
         if(GameManager.gameActive) {
-            npcCar.transform.Translate(10, 0, 0);
+            playerCar.transform.Translate(10 * Time.deltaTime, 0, 0);
         }
     }
 }
