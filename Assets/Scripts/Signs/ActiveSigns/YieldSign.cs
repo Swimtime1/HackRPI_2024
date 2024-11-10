@@ -33,7 +33,8 @@ public class YieldSign : MonoBehaviour
     void Update()
     {
         // the car yielded if they stopped while in range
-        if(Car.inRange && !GameManager.gameActive) { yielded = true; }
+        if(Car.inRange && !GameManager.gameActive && !GameManager.gamePaused) 
+        { yielded = true; }
 
         // Determines if the player yielded in time
         if(truck && (truck.transform.position.x < Car.xPos))
