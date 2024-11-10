@@ -1,43 +1,66 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Intersection : MonoBehaviour {
+public class Intersection : MonoBehaviour
+{
+    #region Variables
 
-    public GameObject playerCar;
+    [Header("Other Objects")]
+    [SerializeField] private GameManager gm;
+    [SerializeField] private GameObject zoomOutSign;
+    [SerializeField] private Animation anim;
+    [SerializeField] private SpriteRenderer stopSign;
 
-    public GameObject npcCar;
-    private bool npcCarGoesFirst;
-    private bool playerCanPass = false;
-    private BoxCollider2D boxCollider;
+    [Space(20)]
+    [SerializeField] private bool pointGiven = false;
 
+    #endregion Variables
+    
     // Start is called before the first frame update
-    void Start() {
-        boxCollider = GetComponent<BoxCollider2D>();
-        npcCarGoesFirst = Random.Range(0, 1) == 0;
-        if(npcCarGoesFirst) {
-            npcCar.GetComponent<Animation>().Play("topDownNpcCar");
-        } else {
-            SpriteRenderer npcCarSprite = npcCar.GetComponent<SpriteRenderer>();
-            npcCarSprite.sprite = null;
-            playerCanPass = true;
-        }
+    void Start()
+    {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        zoomOutSign = GameObject.Find("ZoomedOutSign");
+
+        gm.DisplayMessage("");
     }
 
     // Update is called once per frame
-    void Update() {
-        if(boxCollider.OverlapCollider(new ContactFilter2D().NoFilter(), new List<Collider2D>()) == 1) {
-            Debug.Log("TRIGGER");
+    void Update()
+    {
+        // Pauses animation when the game is paused
+        if(GameManager.gamePaused) 
+        {
+            foreach (AnimationState state in anim)
+            { state.speed = 0; }
         }
-        if(GameManager.gameActive) {
-            playerCar.transform.Translate(1 * Time.deltaTime, 0, 0);
+        else
+        {
+            foreach (AnimationState state in anim)
+            { state.speed = 1; }
         }
-    }
 
-    void allowPlayerToPass() {
-        playerCanPass = true;
-    }
+        // Only checks after the car passes the stop sign
+        if(zoomOutSign.transform.position.x > Car.xPos) { return; }
+        
+        // Assigns point for waiting at the Intersection
+        if(!stopSign.enabled && GameManager.gameActive && !GameManager.gamePaused && !pointGiven)
+        {
+            string str = "Impressive!";
+            gm.DisplayMessage(str);
+            pointGiven = true;
+            gm.UpdateScore();
+            Destroy(gameObject);
+        }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(true) { Debug.Log("TRIGGER"); }
+        // Player didn't stop, or started too soon
+        else
+        {
+            string str = "Uh-oh! You ran a Red Light!";
+            gm.DisplayMessage(str);
+            gm.OpenEnd();
+            Destroy(gameObject);
+        }
     }
 }
