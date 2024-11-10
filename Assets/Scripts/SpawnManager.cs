@@ -18,14 +18,7 @@ public class SpawnManager : MonoBehaviour
 
     #endregion Variables
 
-    // Called when the Start Menu is closed
-    public void StartSpawn()
-    {
-        InvokeRepeating("SpawnRandomSign", startDelay, spawnInterval);
-    }
-
-    // Instantiates a new sign
-    private void SpawnRandomSign()
+    public void SpawnRandomSign()
     {
         // Prevents spawning while the game isn't active
         if(!GameManager.gameActive) { return; }

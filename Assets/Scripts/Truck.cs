@@ -7,13 +7,14 @@ public class Truck : MonoBehaviour
     #region Variables
 
     [SerializeField] private float speed;
+    [SerializeField] private bool canStart = false;
 
     #endregion Variables
     
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
-        Debug.Log("Truck Update Called");
+        if(/* Car.inRange */ true) { canStart = true; }
+        if(canStart) { transform.Translate(Vector3.left * speed * Time.deltaTime); }
     }
 }

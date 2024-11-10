@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         if(startMenu.activeSelf)
         {
             StartGame();
-            spawnManager.StartSpawn();
+            spawnManager.SpawnRandomSign();
         }
     }
 

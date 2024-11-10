@@ -14,6 +14,9 @@ public class BackgroundMover : MonoBehaviour
     [Space(10)]
     [SerializeField] private float speed;
 
+    [Header("Other GameObjects")]
+    [SerializeField] private SpawnManager spawnManager;
+
     #endregion Variables
     
     // Start is called before the first frame update
@@ -30,7 +33,13 @@ public class BackgroundMover : MonoBehaviour
         if(!GameManager.gameActive) { return; }
         
         // Resets the position to the far right if the far left was reached
-        if(transform.position.x <= endPos.x) { transform.position = startPos; }
+        if(transform.position.x <= endPos.x) 
+        { 
+            transform.position = startPos;
+
+            // if this is the zoomedoutsign, spawns a new sign
+            if(gameObject.name == "ZoomedOutSign") { spawnManager.SpawnRandomSign(); }
+        }
 
         // Moves this GameObject to the left
         else { transform.Translate(Vector3.left * speed * Time.deltaTime); }

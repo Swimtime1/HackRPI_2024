@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5677f8a906a9a3347b8458ec14890ab4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2487616d1898114478334ae99f2fab02, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -684,6 +684,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 132106742726685882, guid: c74571181c6270a4c90658f7deaff4bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261270202784255124, guid: c74571181c6270a4c90658f7deaff4bc, type: 3}
+      propertyPath: spawnManager
+      value: 
+      objectReference: {fileID: 1130572054}
+    - target: {fileID: 4473255939352056495, guid: c74571181c6270a4c90658f7deaff4bc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5342067624538318539, guid: c74571181c6270a4c90658f7deaff4bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.12
@@ -855,6 +867,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2117636353539394819, guid: 7d614d8e067ff6741bd8b03e9fbb43dc, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2492072616893113257, guid: 7d614d8e067ff6741bd8b03e9fbb43dc, type: 3}
       propertyPath: m_Name
       value: Car
