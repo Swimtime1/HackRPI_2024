@@ -28,6 +28,12 @@ public class GameManager : MonoBehaviour
     [Header("Animators")]
     [SerializeField] private Animator carAnimator;
 
+    [Header("Audio Sources and Clips")]
+    [SerializeField] private AudioSource bkMusic;
+    [SerializeField] private AudioSource carAudio;
+    [SerializeField] private AudioClip driving;
+    [SerializeField] private AudioClip braking;
+
     [Header("Other Objects")]
     [SerializeField] private SpawnManager spawnManager;
     [SerializeField] private ParticleSystem burst;
@@ -61,6 +67,7 @@ public class GameManager : MonoBehaviour
         gameActive = true;
 
         carAnimator.speed = 1;
+        carAudio.Play();
 
         CloseMenus();
     }
@@ -103,8 +110,17 @@ public class GameManager : MonoBehaviour
         if(gameStarted && !gamePaused)
         {
             gameActive = !gameActive;
-            if(gameActive && !gamePaused) { carAnimator.speed = 1; }
-            else { carAnimator.speed = 0;}
+            if(gameActive && !gamePaused)
+            {
+                carAnimator.speed = 1;
+                carAudio.Play();
+            }
+            else
+            {
+                carAnimator.speed = 0;
+                carAudio.Stop();
+                carAudio.PlayOneShot(braking);
+            }
         }
     }
 
@@ -118,7 +134,12 @@ public class GameManager : MonoBehaviour
             gamePaused = false;
             popup.gameObject.SetActive(true);
             
-            if(gameActive) { carAnimator.speed = 1; }
+            // Restarts the car
+            if(gameActive)
+            {
+                carAnimator.speed = 1;
+                carAudio.UnPause();
+            }
         }
         else { OpenPause(); }
     }
@@ -148,6 +169,7 @@ public class GameManager : MonoBehaviour
         CloseMenus();
         gamePaused = true;
         carAnimator.speed = 0;
+        carAudio.Pause();
         popup.gameObject.SetActive(false);
         pauseMenu.SetActive(true);
     }
@@ -158,6 +180,7 @@ public class GameManager : MonoBehaviour
         CloseMenus();
         endMenu.SetActive(true);
         carAnimator.speed = 1;
+        carAudio.Stop();
         gameActive = false;
     }
 
