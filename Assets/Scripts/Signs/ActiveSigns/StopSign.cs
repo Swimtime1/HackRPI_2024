@@ -1,56 +1,48 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
-using UnityEditor.UI;
 using UnityEngine;
 
-public class StopSign : MonoBehaviour {
-	public GameObject car;
-	private int stop = 0;
-	public GameObject correct;
-	public GameObject late;
-	public GameObject early;
-	private Vector3 pos;
+public class StopSign : MonoBehaviour
+{
+    #region Variables
 
-	// Start is called before the first frame update
-	void Start () {
-		pos = transform.position;
-	}
+    [Header("Other Objects")]
+    [SerializeField] private GameManager gm;
+    [SerializeField] private GameObject zoomOutSign;
 
-	// Update is called once per frame
-	void Update () {
-		float posX = gameObject.transform.position.x;
-		float distance = Mathf.Abs (car.transform.position.x - posX);
-		bool play = GameManager.gameActive;
-		//Debug.Log ("play: " + play);
-		if ( play == true ) {
-			float gameTime = Time.time;
-			Debug.Log ("distance: " + distance);
-			if ( distance < 6.2 && distance > 4.42 ) {
-				if ( Input.GetButtonDown ("Stop") && stop >= 0 ) {
-					stop++;
-					GameManager.score++;
-					StartCoroutine (turnOff (correct));
-				}
-			}
-			else if ( distance > 6.2 ) {
-				if ( Input.GetButtonDown ("Stop") && stop >= 0 ) {
-					StartCoroutine (turnOff (early));
-				}
-			}
-			else if ( distance < 4.42 ) {
-				if ( Input.GetButtonDown ("Stop") && stop >= 0 ) {
-					StartCoroutine (turnOff (late));
-				}
-			}
-		}
+    [Space(20)]
+    [SerializeField] private bool pointGiven = false;
 
-	}
-	IEnumerator turnOff ( GameObject condition ) {
-		condition.SetActive (true);
-		yield return new WaitForSeconds (1);
-		condition.SetActive (false);
-	}
+    #endregion Variables
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        zoomOutSign = GameObject.Find("ZoomedOutSign");
+
+        gm.DisplayMessage("");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Assigns point for stopping at the Stop Sign
+        if(Car.inRange && !GameManager.gameActive && !GameManager.gamePaused && !pointGiven)
+        {
+            string str = "Spectacular!";
+            gm.DisplayMessage(str);
+            pointGiven = true;
+            gm.UpdateScore();
+        }
+
+        // Player didn't stop
+        if(!pointGiven && (zoomOutSign.transform.position.x <= Car.xPos))
+        {
+            string str = "Uh-oh! You blew a \"Stop Sign\"!";
+            gm.DisplayMessage(str);
+            gm.OpenEnd();
+            Destroy(gameObject);
+        }
+    }
 }

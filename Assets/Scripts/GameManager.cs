@@ -174,6 +174,6 @@ public class GameManager : MonoBehaviour
     {
         score++;
         burst.Play();
-        scoreText.text = score.ToString();
+        scoreText.text = "Traffic Sign IQ: " + score.ToString();
     }
 }
