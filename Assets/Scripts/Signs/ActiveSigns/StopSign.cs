@@ -34,6 +34,7 @@ public class StopSign : MonoBehaviour
             gm.DisplayMessage(str);
             pointGiven = true;
             gm.UpdateScore();
+            Destroy(gameObject);
         }
 
         // Player didn't stop
