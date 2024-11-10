@@ -30,7 +30,7 @@ public class BackgroundMover : MonoBehaviour
     void Update()
     {
         // Prevents background from moving while the game isn't active
-        if(!GameManager.gameActive) { return; }
+        if(!GameManager.gameActive || GameManager.gamePaused) { return; }
         
         // Resets the position to the far right if the far left was reached
         if(transform.position.x <= endPos.x) 
