@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public static bool gameStarted;
     public static bool gameActive;
     public static bool gamePaused;
+    public static int score = 0;
 
     [Header("Menus")]
     [SerializeField] private GameObject startMenu;
@@ -164,5 +165,11 @@ public class GameManager : MonoBehaviour
     public void DisplayMessage(string message)
     {
         popup.text = message;
+    }
+
+    // Updates the score, and plays a little effect
+    public void UpdateScore()
+    {
+        score++;
     }
 }

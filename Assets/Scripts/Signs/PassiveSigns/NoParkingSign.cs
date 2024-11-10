@@ -8,7 +8,10 @@ public class NoParkingSign : MonoBehaviour
 
     [Header("Other Objects")]
     [SerializeField] private GameManager gm;
-    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject zoomOutSign;
+
+    [Space(20)]
+    [SerializeField] private bool pointGiven = false;
 
     #endregion Variables
     
@@ -16,7 +19,7 @@ public class NoParkingSign : MonoBehaviour
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        pauseMenu = GameObject.Find("Pause Menu");
+        zoomOutSign = GameObject.Find("ZoomedOutSign");
 
         gm.DisplayMessage("");
     }
@@ -29,6 +32,17 @@ public class NoParkingSign : MonoBehaviour
         {
             string str = "Uh-oh! Don't park near a \"No Parking\" sign!";
             gm.DisplayMessage(str);
+            gm.OpenEnd();
+            Destroy(gameObject);
+        }
+
+        // Assigns point for not parking in a No Parking Zone
+        if(!pointGiven && (zoomOutSign.transform.position.x <= Car.xPos))
+        {
+            string str = "Awesome!";
+            gm.DisplayMessage(str);
+            pointGiven = true;
+            gm.UpdateScore();
         }
     }
 }
