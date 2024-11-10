@@ -31,7 +31,7 @@ public class StopSign : MonoBehaviour {
 			if ( distance < 6.2 && distance > 4.42 ) {
 				if ( Input.GetButtonDown ("Stop") && stop >= 0 ) {
 					stop++;
-					Score.scoreType++;
+					GameManager.score++;
 					StartCoroutine (turnOff (correct));
 				}
 			}
