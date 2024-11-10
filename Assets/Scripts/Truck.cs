@@ -7,6 +7,7 @@ public class Truck : MonoBehaviour
     #region Variables
 
     [SerializeField] private float speed;
+    [SerializeField] private bool canStart = false;
 
     #endregion Variables
     
@@ -14,6 +15,5 @@ public class Truck : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
-        Debug.Log("Truck Update Called");
     }
 }
