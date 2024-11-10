@@ -102,7 +102,7 @@ MonoBehaviour:
   gameStartPos: {x: 9.12, y: -4.508}
   startPos: {x: 9.12, y: -4.508}
   endPos: {x: -9.12, y: -4.508}
-  speed: 1
+  speed: 2
   spawnManager: {fileID: 0}
 --- !u!61 &4473255939352056495
 BoxCollider2D:

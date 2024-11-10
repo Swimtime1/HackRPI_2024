@@ -102,6 +102,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   yielded: 0
   isCar: 0
+  pointGiven: 0
 --- !u!1 &6920255482187731942
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a113e44e3d1a1846a5a66472ebd5c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
   sprite: {fileID: 8255252444379107595}
 --- !u!95 &849017244340487659
 Animator:

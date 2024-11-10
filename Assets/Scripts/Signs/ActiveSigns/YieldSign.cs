@@ -13,6 +13,7 @@ public class YieldSign : MonoBehaviour
     [Header("Misc.")]
     [SerializeField] private bool yielded;
     [SerializeField] private int isCar;
+    [SerializeField] private bool pointGiven = false;
 
     #endregion Variables
     
@@ -37,7 +38,7 @@ public class YieldSign : MonoBehaviour
         { yielded = true; }
 
         // Determines if the player yielded in time
-        if(truck && (truck.transform.position.x < Car.xPos))
+        if(truck && (truck.transform.position.x < Car.xPos) && !pointGiven)
         {
             string str;
             
@@ -45,6 +46,7 @@ public class YieldSign : MonoBehaviour
             {
                 str = "Nice Job!";
                 gm.UpdateScore();
+                pointGiven = true;
             }
             else
             {

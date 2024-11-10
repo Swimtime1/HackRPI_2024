@@ -49,5 +49,5 @@ MonoBehaviour:
   - {fileID: 5746620533391968251, guid: dc6a30cb44eb5454dbcaae309a25c149, type: 3}
   - {fileID: 5746620533391968251, guid: 3e520a3ddbca13a4b8cce0a925ac9001, type: 3}
   startDelay: 0
-  spawnInterval: 16
+  spawnInterval: 8
   spawnPos: {x: 0, y: 0}

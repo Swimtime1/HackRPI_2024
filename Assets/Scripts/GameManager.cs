@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI popup;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     [Header("Animators")]
     [SerializeField] private Animator carAnimator;
@@ -173,6 +174,6 @@ public class GameManager : MonoBehaviour
     {
         score++;
         burst.Play();
-        Debug.Log("Score: " + score);
+        scoreText.text = score.ToString();
     }
 }

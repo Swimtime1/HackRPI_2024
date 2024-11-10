@@ -457,6 +457,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395008867}
   m_CullTransparentMesh: 1
+--- !u!114 &1436984967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4826956078709225086, guid: 91d63574c4e08324ab83fc29404dbb3b, type: 3}
+  m_PrefabInstance: {fileID: 1539898392998234790}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1935482466 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3183111801308743628, guid: 7d614d8e067ff6741bd8b03e9fbb43dc, type: 3}
@@ -919,6 +930,10 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 718593278}
+    - target: {fileID: 6936940294537194138, guid: b80fcc2c0bb9b194fab04042c37cd8cf, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1436984967}
     - target: {fileID: 6936940294537194138, guid: b80fcc2c0bb9b194fab04042c37cd8cf, type: 3}
       propertyPath: startMenu
       value: 

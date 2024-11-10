@@ -133,7 +133,8 @@ MonoBehaviour:
   gameStartPos: {x: 0, y: 0}
   startPos: {x: 0, y: 0}
   endPos: {x: -20, y: 0}
-  speed: 1
+  speed: 2
+  spawnManager: {fileID: 0}
 --- !u!1 &5453078598274382082
 GameObject:
   m_ObjectHideFlags: 0
