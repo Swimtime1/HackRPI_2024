@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [Header("Game Flow")]
     public static bool gameStarted;
     public static bool gameActive;
+    public static bool gamePaused;
 
     [Header("Menus")]
     [SerializeField] private GameObject startMenu;
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour
     {
         gameStarted = false;
         gameActive = false;
+        gamePaused = false;
+
         carAnimator.speed = 0;
         
         OpenStart();
@@ -53,6 +56,7 @@ public class GameManager : MonoBehaviour
     {
         gameStarted = true;
         gameActive = true;
+
         carAnimator.speed = 1;
 
         CloseMenus();
@@ -93,10 +97,10 @@ public class GameManager : MonoBehaviour
     private void OnStopPerformed(InputAction.CallbackContext context)
     {
         // Toggles whether the game is active
-        if(gameStarted && !pauseMenu.activeSelf)
+        if(gameStarted && !gamePaused)
         {
             gameActive = !gameActive;
-            if(gameActive) { carAnimator.speed = 1; }
+            if(gameActive && !gamePaused) { carAnimator.speed = 1; }
             else { carAnimator.speed = 0;}
         }
     }
@@ -105,11 +109,12 @@ public class GameManager : MonoBehaviour
     private void OnPausePerformed(InputAction.CallbackContext context)
     {
         // toggles the Pause Menu
-        if(pauseMenu.activeSelf)
+        if(gamePaused)
         {
             CloseMenus();
-            gameActive = true;
-            carAnimator.speed = 1;
+            gamePaused = false;
+            
+            if(gameActive) { carAnimator.speed = 1; }
         }
         else { OpenPause(); }
     }
@@ -137,7 +142,7 @@ public class GameManager : MonoBehaviour
     public void OpenPause()
     {
         CloseMenus();
-        gameActive = false;
+        gamePaused = true;
         carAnimator.speed = 0;
         pauseMenu.SetActive(true);
     }
