@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
         {
             CloseMenus();
             gamePaused = false;
+            popup.gameObject.SetActive(true);
             
             if(gameActive) { carAnimator.speed = 1; }
         }
@@ -144,6 +145,7 @@ public class GameManager : MonoBehaviour
         CloseMenus();
         gamePaused = true;
         carAnimator.speed = 0;
+        popup.gameObject.SetActive(false);
         pauseMenu.SetActive(true);
     }
 
@@ -162,14 +164,5 @@ public class GameManager : MonoBehaviour
     public void DisplayMessage(string message)
     {
         popup.text = message;
-        
-        /* // Prevents multi-calling
-        if(!popup.gameObject.activeSelf)
-        {
-            popup.text = message;
-            popup.gameObject.SetActive(true);
-            yield return new WaitForSeconds(5f);
-            popup.gameObject.SetActive(false);
-        } */
     }
 }
